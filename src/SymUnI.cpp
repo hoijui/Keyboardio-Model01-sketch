@@ -84,10 +84,10 @@ void typeString(const char *str) {
     }
 
     Unicode.input();
-    handleKeyswitchEvent(key, 255, 255, IS_PRESSED | INJECTED);
+    handleKeyswitchEvent(key, UnknownKeyswitchLocation, IS_PRESSED | INJECTED);
     Keyboard.sendReport();
     Unicode.input();
-    handleKeyswitchEvent(key, 255, 255, WAS_PRESSED | INJECTED);
+    handleKeyswitchEvent(key, UnknownKeyswitchLocation, WAS_PRESSED | INJECTED);
     Keyboard.sendReport();
   }
   Unicode.end();
