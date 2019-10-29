@@ -39,7 +39,7 @@ void Csilla() {
 
   handleKeyswitchEvent((Key) {
     .raw = LP::HUN_AA
-  }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
+  }, UnknownKeyswitchLocation, IS_PRESSED | INJECTED);
 
   ::Macros.play(MACRO(Tc(M),
                       Tc(A),
@@ -53,7 +53,7 @@ void Csilla() {
 
   handleKeyswitchEvent((Key) {
     .raw = LP::HUN_AA
-  }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
+  }, UnknownKeyswitchLocation, IS_PRESSED | INJECTED);
 
   ::Macros.play(MACRO(Tc(M)));
 }
@@ -66,15 +66,15 @@ void Gergo() {
 
   handleKeyswitchEvent((Key) {
     .raw = LP::HUN_ODA
-  }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
+  }, UnknownKeyswitchLocation, IS_PRESSED | INJECTED);
   Keyboard.sendReport();
   handleKeyswitchEvent((Key) {
     .raw = LP::HUN_ODA
-  }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
+  }, UnknownKeyswitchLocation, IS_PRESSED | INJECTED);
   Keyboard.sendReport();
   handleKeyswitchEvent((Key) {
     .raw = LP::HUN_ODA
-  }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
+  }, UnknownKeyswitchLocation, IS_PRESSED | INJECTED);
 }
 
 }

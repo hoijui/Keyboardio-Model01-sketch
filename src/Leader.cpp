@@ -69,7 +69,7 @@ static void Shruggy(uint8_t seqIndex) {
 }
 
 static void startUCIS(uint8_t seqIndex) {
-  handleKeyswitchEvent(SYSTER, 255, 255, IS_PRESSED | INJECTED);
+  handleKeyswitchEvent(SYSTER, UnknownKeyswitchLocation, IS_PRESSED | INJECTED);
 }
 
 static void Kids(uint8_t seqIndex) {
