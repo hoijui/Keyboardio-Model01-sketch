@@ -192,8 +192,11 @@ KEYMAPS(
   ),
 );
 #else
-KEYMAPS(
-);
+namespace kaleidoscope {
+namespace sketch_exploration {
+void pluginsExploreSketch() {}
+}
+}
 #endif
 
 // *INDENT-ON*
