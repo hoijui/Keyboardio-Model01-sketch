@@ -70,16 +70,16 @@ void typeString(const char *str) {
 
     switch (c) {
     case 'a' ... 'z':
-      key.keyCode = Key_A.keyCode + (c - 'a');
+      key.setKeyCode(Key_A.getKeyCode() + (c - 'a'));
       break;
     case 'A' ... 'Z':
-      key.keyCode = Key_A.keyCode + (c - 'A');
+      key.setKeyCode(Key_A.getKeyCode() + (c - 'A'));
       break;
     case '1' ... '9':
-      key.keyCode = Key_1.keyCode + (c - '1');
+      key.setKeyCode(Key_1.getKeyCode() + (c - '1'));
       break;
     case '0':
-      key.keyCode = Key_0.keyCode;
+      key.setKeyCode(Key_0.getKeyCode());
       break;
     }
 

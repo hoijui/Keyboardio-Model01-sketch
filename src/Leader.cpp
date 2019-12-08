@@ -108,7 +108,7 @@ static void GUIHelper(uint8_t seqIndex) {
 
 static void Reboot(uint8_t seqIndex) {
   Serial.println(F("reboot"));
-  ::KeyboardHardware.rebootBootloader();
+  ::Kaleidoscope.device().rebootBootloader();
 }
 
 static const kaleidoscope::plugin::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
