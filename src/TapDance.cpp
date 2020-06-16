@@ -44,12 +44,12 @@ static void TMUX(uint8_t tapCount, byte row, byte col, kaleidoscope::plugin::Tap
     modifier = Key_LeftControl;
   }
 
-  kaleidoscope::hid::pressKey(modifier);
-  kaleidoscope::hid::pressKey(key);
-  kaleidoscope::hid::sendKeyboardReport();
-  kaleidoscope::hid::releaseKey(modifier);
-  kaleidoscope::hid::releaseKey(key);
-  kaleidoscope::hid::sendKeyboardReport();
+  Kaleidoscope.hid().keyboard().pressKey(modifier);
+  Kaleidoscope.hid().keyboard().pressKey(key);
+  Kaleidoscope.hid().keyboard().sendReport();
+  Kaleidoscope.hid().keyboard().releaseKey(modifier);
+  Kaleidoscope.hid().keyboard().releaseKey(key);
+  Kaleidoscope.hid().keyboard().sendReport();
 }
 
 static void TMUXPane(uint8_t tapCount, byte row, byte col, kaleidoscope::plugin::TapDance::ActionType tapDanceAction) {
@@ -57,21 +57,21 @@ static void TMUXPane(uint8_t tapCount, byte row, byte col, kaleidoscope::plugin:
     return;
 
   // Alt + Space
-  kaleidoscope::hid::pressKey(Key_LeftAlt);
-  kaleidoscope::hid::pressKey(Key_Spacebar);
-  kaleidoscope::hid::sendKeyboardReport();
-  kaleidoscope::hid::releaseKey(Key_LeftAlt);
-  kaleidoscope::hid::releaseKey(Key_Spacebar);
-  kaleidoscope::hid::sendKeyboardReport();
+  Kaleidoscope.hid().keyboard().pressKey(Key_LeftAlt);
+  Kaleidoscope.hid().keyboard().pressKey(Key_Spacebar);
+  Kaleidoscope.hid().keyboard().sendReport();
+  Kaleidoscope.hid().keyboard().releaseKey(Key_LeftAlt);
+  Kaleidoscope.hid().keyboard().releaseKey(Key_Spacebar);
+  Kaleidoscope.hid().keyboard().sendReport();
 
   // P, or Z
   Key key = Key_P;
   if (tapCount == 2)
     key = Key_Z;
 
-  kaleidoscope::hid::pressKey(key);
-  kaleidoscope::hid::sendKeyboardReport();
-  kaleidoscope::hid::releaseKey(key);
+  Kaleidoscope.hid().keyboard().pressKey(key);
+  Kaleidoscope.hid().keyboard().sendReport();
+  Kaleidoscope.hid().keyboard().releaseKey(key);
 }
 
 bool cancelOneShot = false;

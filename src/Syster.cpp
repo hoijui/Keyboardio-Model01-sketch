@@ -29,9 +29,9 @@ void systerAction(kaleidoscope::plugin::Syster::action_t action, const char *sym
     break;
   case kaleidoscope::plugin::Syster::EndAction:
     handleKeyswitchEvent(Key_Backspace, UnknownKeyswitchLocation, IS_PRESSED | INJECTED);
-    kaleidoscope::hid::sendKeyboardReport();
+    Kaleidoscope.hid().keyboard().sendReport();
     handleKeyswitchEvent(Key_Backspace, UnknownKeyswitchLocation, WAS_PRESSED | INJECTED);
-    kaleidoscope::hid::sendKeyboardReport();
+    Kaleidoscope.hid().keyboard().sendReport();
     break;
   case kaleidoscope::plugin::Syster::SymbolAction:
     algernon::SymUnI::input(symbol);
