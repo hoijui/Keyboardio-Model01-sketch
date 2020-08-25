@@ -31,7 +31,7 @@ enum {
   VOLD,
 };
 
-extern void tapDanceAction(uint8_t tapDanceIndex, uint8_t tapCount, kaleidoscope::plugin::TapDance::ActionType tapDanceAction);
+extern void tapDanceAction(uint8_t tapDanceIndex, KeyAddr key_addr, uint8_t tapCount, kaleidoscope::plugin::TapDance::ActionType tapDanceAction);
 
 namespace algernon {
 namespace TapDance {

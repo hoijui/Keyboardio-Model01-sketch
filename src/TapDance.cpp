@@ -27,7 +27,7 @@
 namespace algernon {
 namespace TapDance {
 
-static void TMUX(uint8_t tapCount, byte row, byte col, kaleidoscope::plugin::TapDance::ActionType tapDanceAction) {
+static void TMUX(uint8_t tapCount, KeyAddr key_addr, kaleidoscope::plugin::TapDance::ActionType tapDanceAction) {
   if (tapDanceAction != kaleidoscope::plugin::TapDance::Release)
     return;
 
@@ -52,7 +52,7 @@ static void TMUX(uint8_t tapCount, byte row, byte col, kaleidoscope::plugin::Tap
   Kaleidoscope.hid().keyboard().sendReport();
 }
 
-static void TMUXPane(uint8_t tapCount, byte row, byte col, kaleidoscope::plugin::TapDance::ActionType tapDanceAction) {
+static void TMUXPane(uint8_t tapCount, KeyAddr key_addr, kaleidoscope::plugin::TapDance::ActionType tapDanceAction) {
   if (tapDanceAction != kaleidoscope::plugin::TapDance::Release)
     return;
 
@@ -79,15 +79,15 @@ bool cancelOneShot = false;
 
 }
 
-void tapDanceAction(uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, kaleidoscope::plugin::TapDance::ActionType tapDanceAction) {
+void tapDanceAction(uint8_t tapDanceIndex, KeyAddr key_addr, uint8_t tapCount, kaleidoscope::plugin::TapDance::ActionType tapDanceAction) {
   if (tapDanceAction == kaleidoscope::plugin::TapDance::Release)
     algernon::TapDance::cancelOneShot = true;
 
   switch (tapDanceIndex) {
   case TMUX:
-    return algernon::TapDance::TMUX(tapCount, row, col, tapDanceAction);
+    return algernon::TapDance::TMUX(tapCount, key_addr, tapDanceAction);
   case TMUXP:
-    return algernon::TapDance::TMUXPane(tapCount, row, col, tapDanceAction);
+    return algernon::TapDance::TMUXPane(tapCount, key_addr, tapDanceAction);
 
   case LPB: {
     if (tapCount < 3) {
