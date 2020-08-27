@@ -9,9 +9,9 @@ build: output/algernon.ino.hex
 
 output/algernon.ino.hex: src/algernon/gitrevs.h ${SOURCES}
 	${ARDUINO_CLI} compile \
-		-b keyboardio:avr:model01 \
 		--libraries lib \
-		--build-path ${CURDIR}/output \
+		--build-path ${CURDIR}/build \
+		--output-dir ${CURDIR}/output \
 		${VERBOSE} \
 		src/algernon
 

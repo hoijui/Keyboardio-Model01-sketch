@@ -1,6 +1,7 @@
 .#*
 *~
 core
+/build/
 /output/
 /hardware
 /lib/
