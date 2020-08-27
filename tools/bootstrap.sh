@@ -13,12 +13,6 @@ update () {
     done
 }
 
-link () {
-    rm -f ~/Arduino/hardware/keyboardio
-    install -d ~/Arduino/hardware
-    ln -s $(pwd)/lib/hardware/keyboardio ~/Arduino/hardware/keyboardio
-}
-
 setup () {
     echo "Cloning..."
     [ -e lib/Kaleidoscope-LangPack-Hungarian ] || \
@@ -29,6 +23,5 @@ setup () {
         git clone -q https://git.madhouse-project.org/algernon/Kaleidoscope-Focus-Version.git lib/Kaleidoscope-Focus-Version
     [ -e lib/hardware/keyboardio ] || \
         git clone -q https://github.com/keyboardio/Kaleidoscope-Bundle-Keyboardio lib/hardware/keyboardio
-    link
     update
 }

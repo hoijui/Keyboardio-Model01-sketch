@@ -35,5 +35,4 @@ pipeline:
     group: test
     image: algernon/drone-language:arduino
     commands:
-      - make link
       - make build

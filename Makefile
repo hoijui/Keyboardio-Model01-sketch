@@ -8,6 +8,7 @@ endif
 build: output/algernon.ino.hex
 
 output/algernon.ino.hex: src/algernon/gitrevs.h ${SOURCES}
+	ARDUINO_DIRECTORIES_USER=${CURDIR}/lib \
 	${ARDUINO_CLI} compile \
 		--libraries lib \
 		--build-path ${CURDIR}/build \
@@ -25,7 +26,7 @@ src/algernon/gitrevs.h: src/algernon/gitrevs.h.new
 	cmp -s $@ $^ || mv $^ $@
 	rm -f $^
 
-setup update link: tools/bootstrap.sh
+setup update: tools/bootstrap.sh
 	. tools/bootstrap.sh && $@
 
 .PHONY: setup build update link
