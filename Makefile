@@ -1,6 +1,10 @@
 ARDUINO_CLI ?= arduino-cli
 SOURCES=$(wildcard src/algernon/*.cpp src/algernon/*.h src/algernon/*.ino)
 
+ifdef DRONE_COMMIT
+VERBOSE=-v
+endif
+
 build: output/algernon.ino.hex
 
 output/algernon.ino.hex: src/algernon/gitrevs.h ${SOURCES}
@@ -8,7 +12,7 @@ output/algernon.ino.hex: src/algernon/gitrevs.h ${SOURCES}
 		-b keyboardio:avr:model01 \
 		--libraries lib \
 		--build-path ${CURDIR}/output \
-		\
+		${VERBOSE} \
 		src/algernon
 
 src/algernon/gitrevs.h.new: GIT_REV=$(shell git describe --tags --always --dirty)
