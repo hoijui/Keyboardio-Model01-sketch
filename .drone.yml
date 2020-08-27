@@ -21,7 +21,7 @@ pipeline:
   bootstrap:
     image: algernon/drone-language:arduino
     commands:
-      - . ./.kaleidoscope-builder.conf && setup
+      - make setup
 
   cache-rebuild:
     image: drillster/drone-volume-cache
@@ -35,4 +35,5 @@ pipeline:
     group: test
     image: algernon/drone-language:arduino
     commands:
+      - make link
       - make build

@@ -21,7 +21,7 @@ src/algernon/gitrevs.h: src/algernon/gitrevs.h.new
 	cmp -s $@ $^ || mv $^ $@
 	rm -f $^
 
-setup update: tools/bootstrap.sh
+setup update link: tools/bootstrap.sh
 	. tools/bootstrap.sh && $@
 
-.PHONY: setup build update
+.PHONY: setup build update link
