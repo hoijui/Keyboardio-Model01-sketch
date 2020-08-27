@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016, 2017, 2018  Gergely Nagy
+ * Copyright (C) 2016-2020  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
  */
 
 #include "00-config.h"
+#include "gitrevs.h"
 
 #include <Kaleidoscope.h>
 
@@ -160,6 +161,8 @@ void setup() {
   Layer.getKey = EEPROMKeymap.getKey;
   layer_count = LAYER_MAX + 1;
 #endif
+
+  Kaleidoscope.device().maskKey(KeyAddr(0, 0));
 }
 
 void loop() {

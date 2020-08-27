@@ -7,3 +7,6 @@ core
 /tmp/
 /*.map
 /*.s
+/src/algernon/gitrevs.h
+/src/algernon/gitrevs.h.new
+/src/algernon/build/
