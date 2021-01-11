@@ -11,6 +11,7 @@ output/algernon.ino.hex: src/algernon/gitrevs.h ${SOURCES}
 	ARDUINO_DIRECTORIES_USER=${CURDIR}/lib \
 	${ARDUINO_CLI} compile \
 		--libraries lib \
+		--libraries lib/hardware/keyboardio/avr/libraries/Kaleidoscope/plugins \
 		--build-path ${CURDIR}/build \
 		--output-dir ${CURDIR}/output \
 		${VERBOSE} \
