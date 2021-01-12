@@ -161,8 +161,6 @@ void setup() {
   Layer.getKey = EEPROMKeymap.getKey;
   layer_count = LAYER_MAX + 1;
 #endif
-
-  Kaleidoscope.device().maskKey(KeyAddr(0, 0));
 }
 
 void loop() {
