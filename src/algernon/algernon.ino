@@ -42,7 +42,6 @@
 
 #include "Layers.h"
 
-#include "Colormap.h"
 #include "FocusCycleTime.h"
 #include "Leader.h"
 #include "MagicCombo.h"
@@ -114,7 +113,9 @@ KALEIDOSCOPE_INIT_PLUGINS(
 void setup() {
   Kaleidoscope.setup();
 
-  algernon::Colormap::configure();
+  ColormapEffect.max_layers(LAYER_MAX);
+  ColormapEffect.activate();
+
   algernon::Leader::configure();
 
   MouseWrapper.speedLimit = 64;
