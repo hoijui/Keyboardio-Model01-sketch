@@ -38,7 +38,6 @@ enum {
 
   LEAD_LEDEFFECT,
 
-  LEAD_BUTTERFLY,
   LEAD_COMPOSE,
   LEAD_REBOOT,
 };
@@ -69,16 +68,6 @@ static void NextLEDEffect(uint8_t seqIndex) {
   LEDControl.next_mode();
 }
 
-static void Butterfly(uint8_t seqIndex) {
-  ::Macros.play(MACRO(I(10),
-                      D(LeftAlt), W(100), Tc(X), W(100), U(LeftAlt),
-                      W(100), W(100),
-                      Tc(B), Tc(U), Tc(T), Tc(T), Tc(E), Tc(R), Tc(F), Tc(L), Tc(Y),
-                      W(100), W(100),
-                      Tc(Enter), W(100),
-                      Tc(Y)));
-}
-
 static void Compose(uint8_t seqIndex) {
   ::Macros.play(MACRO(T(RightAlt)));
 }
@@ -95,7 +84,6 @@ static const kaleidoscope::plugin::Leader::dictionary_t dictionary[] PROGMEM = L
 
      [LEAD_LEDEFFECT]       = {LEADER_SEQ(LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
 
-     [LEAD_BUTTERFLY]       = {LEADER_SEQ(LEAD(MAIN), OSM(LeftAlt)), Butterfly},
      [LEAD_COMPOSE]         = {LEADER_SEQ(LEAD(MAIN), Key_R), Compose},
      [LEAD_REBOOT]          = {LEADER_SEQ(LEAD(MAIN), Key_X), Reboot});
 
