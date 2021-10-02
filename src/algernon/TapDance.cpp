@@ -33,9 +33,6 @@ static void TMUX(uint8_t tapCount, KeyAddr key_addr, kaleidoscope::plugin::TapDa
 
   Key key, modifier;
 
-  Serial.print("TMUX: tapCount=");
-  Serial.println(tapCount);
-
   if (tapCount == 1) {
     key = Key_Spacebar;
     modifier = Key_LeftAlt;
