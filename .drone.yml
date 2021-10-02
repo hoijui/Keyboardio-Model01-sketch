@@ -1,7 +1,16 @@
 kind: pipeline
 name: default
 
+clone:
+  disable: true
+
 steps:
+  - name: clone
+    image: alpine/git
+    commands:
+      - git clone https://git.madhouse-project.org/algernon/Model01-sketch.git .
+      - git checkout $DRONE_COMMIT
+
   - name: dco
     image: algernon/drone-plugin-dco
 
