@@ -49,3 +49,8 @@ steps:
     depends_on: [ bootstrap ]
     commands:
       - make build
+
+volumes:
+  - name: cache
+    host:
+      path: /tmp/cache/model01-sketch
