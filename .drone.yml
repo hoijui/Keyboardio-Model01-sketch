@@ -16,12 +16,14 @@ steps:
 
   - name: cache-restore
     image: drillster/drone-volume-cache
-    depends_on: [ clone ]
-    restore: true
-    mount:
-      - lib
     volumes:
-      - /tmp/cache/Model01-Sketch:/cache
+      - name: cache
+        path: /cache
+    settings:
+      restore: true
+      mount:
+        - ./lib
+    depends_on: [ clone ]
 
   - name: bootstrap
     image: algernon/drone-language:arduino
@@ -32,12 +34,14 @@ steps:
 
   - name: cache-rebuild
     image: drillster/drone-volume-cache
-    rebuild: true
-    depends_on: [ bootstrap ]
-    mount:
-      - lib
     volumes:
-      - /tmp/cache/Model01-Sketch:/cache
+      - name: cache
+        path: /cache
+    settings:
+      rebuild: true
+      mount:
+        - ./lib
+    depends_on: [ bootstrap ]
 
   - name: build
     image: algernon/drone-language:arduino
