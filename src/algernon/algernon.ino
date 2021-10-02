@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016-2020  Gergely Nagy
+ * Copyright (C) 2016-2021  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -62,36 +62,6 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
     return MACRO_NONE;
 
   switch (macroIndex) {
-  case APPSEL_MUSIC ... APPSEL_PWMGR:
-    Serial.print(F("AS:"));
-    break;
-  }
-
-  switch (macroIndex) {
-  case APPSEL_MUSIC:
-    Serial.println(F("music"));
-    break;
-  case APPSEL_CHAT:
-    Serial.println(F("chat"));
-    break;
-  case APPSEL_EMACS:
-    Serial.println(F("emacs"));
-    break;
-  case APPSEL_TERM:
-    Serial.println(F("term"));
-    break;
-  case APPSEL_WEB:
-    Serial.println(F("web"));
-    break;
-  case APPSEL_SOC:
-    Serial.println(F("social"));
-    break;
-  case APPSEL_SOC2:
-    Serial.println(F("social2"));
-    break;
-  case APPSEL_PWMGR:
-    Serial.println(F("pwmgr"));
-    break;
   case BDN:
     Serial.println(F("b:d"));
     break;
@@ -167,8 +137,7 @@ void loop() {
   Kaleidoscope.loop();
 
   if (algernon::TapDance::cancelOneShot) {
-    if (!Layer.isActive(_APPSEL))
-      OneShot.cancel();
+    OneShot.cancel();
     algernon::TapDance::cancelOneShot = false;
   }
 

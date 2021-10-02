@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016  Gergely Nagy
+ * Copyright (C) 2016-2021  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,6 @@ enum {
   _ADORE,
   _NAV,
   _AUX,
-  _APPSEL,
   _EMPTY,
 
   LAYER_MAX = _EMPTY

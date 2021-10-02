@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016, 2017, 2018  Gergely Nagy
+ * Copyright (C) 2016-2021  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,8 +44,6 @@ enum {
   LEAD_LEDEFFECT,
 
   LEAD_BUTTERFLY,
-  LEAD_GUI_HELPER,
-  LEAD_GUI,
   LEAD_COMPOSE,
   LEAD_REBOOT,
 };
@@ -92,18 +90,8 @@ static void Butterfly(uint8_t seqIndex) {
                       Tc(Y)));
 }
 
-static void GUI(uint8_t seqIndex) {
-  ::OneShot.inject(OSL(_APPSEL), IS_PRESSED);
-  ::OneShot.inject(OSL(_APPSEL), WAS_PRESSED);
-  Serial.println(F("AS:start"));
-}
-
 static void Compose(uint8_t seqIndex) {
   ::Macros.play(MACRO(T(RightAlt)));
-}
-
-static void GUIHelper(uint8_t seqIndex) {
-  Serial.println(F("AS:helper"));
 }
 
 static void Reboot(uint8_t seqIndex) {
@@ -122,8 +110,6 @@ static const kaleidoscope::plugin::Leader::dictionary_t dictionary[] PROGMEM = L
      [LEAD_LEDEFFECT]       = {LEADER_SEQ(LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
 
      [LEAD_BUTTERFLY]       = {LEADER_SEQ(LEAD(MAIN), OSM(LeftAlt)), Butterfly},
-     [LEAD_GUI_HELPER]      = {LEADER_SEQ(LEAD(MAIN), Key_Enter, Key_LeftGui), GUIHelper},
-     [LEAD_GUI]             = {LEADER_SEQ(LEAD(MAIN), Key_LeftGui), GUI},
      [LEAD_COMPOSE]         = {LEADER_SEQ(LEAD(MAIN), Key_R), Compose},
      [LEAD_REBOOT]          = {LEADER_SEQ(LEAD(MAIN), Key_X), Reboot});
 

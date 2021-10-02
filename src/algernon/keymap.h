@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016, 2017, 2018  Gergely Nagy
+ * Copyright (C) 2016-2021  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,15 +28,8 @@ namespace LP = kaleidoscope::language;
 #define MM(d) Key_mouse ## d
 
 enum {
-  APPSEL_MUSIC,
-  APPSEL_CHAT,
-  APPSEL_EMACS,
-  APPSEL_TERM,
-  APPSEL_WEB,
-  APPSEL_SOC,
-  APPSEL_SOC2,
-  APPSEL_PWMGR,
-  F11,
+  // Starting at 8, for compatibility's sake
+  F11 = 8,
   BDN,
   BUP,
 };
@@ -52,15 +45,6 @@ enum {
 #define Key_LCB   LSHIFT(Key_LeftBracket)
 #define Key_RCB   LSHIFT(Key_RightBracket)
 #define Key_Plus  LSHIFT(Key_Equals)
-
-#define AS_MUS M(APPSEL_MUSIC)
-#define AS_CHT M(APPSEL_CHAT)
-#define AS_ECS M(APPSEL_EMACS)
-#define AS_TRM M(APPSEL_TERM)
-#define AS_WEB M(APPSEL_WEB)
-#define AS_SOC M(APPSEL_SOC)
-#define AS_SC2 M(APPSEL_SOC2)
-#define AS_PWM M(APPSEL_PWMGR)
 
 #define MS_SUP MM(ScrollUp)
 #define MS_SDN MM(ScrollDn)
@@ -153,24 +137,6 @@ KEYMAPS(
 
    ,XXX ,XXX ,XXX ,___
    ,___
-  ),
-
-  [_APPSEL] = KEYMAP_STACKED
-  (
-    XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX
-   ,XXX
-
-   ,XXX ,XXX ,AS_SOC ,AS_SC2 ,AS_PWM ,XXX ,XXX
-   ,XXX ,XXX ,XXX    ,XXX    ,XXX    ,XXX ,XXX
-        ,XXX ,AS_TRM ,AS_ECS ,AS_WEB ,XXX ,XXX
-   ,XXX ,XXX ,AS_MUS ,XXX    ,AS_CHT ,XXX ,XXX
-
-   ,XXX ,XXX ,XXX ,XXX
-   ,XXX
   ),
 
   [_EMPTY] = KEYMAP_STACKED
