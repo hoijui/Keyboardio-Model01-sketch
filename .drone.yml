@@ -1,6 +1,6 @@
 kind: pipeline
 type: docker
-name: algernon's Model01 sketch
+name: default
 
 steps:
   - name: dco
