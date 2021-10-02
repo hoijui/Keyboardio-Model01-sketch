@@ -46,16 +46,16 @@ static void Shruggy(uint8_t seqIndex) {
   ::Unicode.type(0xaf);
   ::Macros.play(MACRO(I(25),
                       Tc(Backslash),
-                      D(RightShift),
+                      Dc(RightShift),
                       Tc(Minus),
                       Tc(9),
-                      U(RightShift)));
+                      Uc(RightShift)));
   ::Unicode.type(0x30c4);
   ::Macros.play(MACRO(I(25),
-                      D(RightShift),
+                      Dc(RightShift),
                       Tc(0),
                       Tc(Minus),
-                      U(RightShift),
+                      Uc(RightShift),
                       Tc(Slash)));
   ::Unicode.type(0xaf);
 }
