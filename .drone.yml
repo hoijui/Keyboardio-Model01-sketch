@@ -3,18 +3,18 @@ type: docker
 name: algernon's Model01 sketch
 
 steps:
-  dco:
+  - name: dco
     image: algernon/drone-plugin-dco
     depends_on: [ clone ]
 
-  signature-check:
+  - name: signature-check
     image: algernon/drone-plugin-signature-check
     keys: [ 10E65DC045EABEFCC5193A26AC1E90BAC433F68F ]
     depends_on: [ clone ]
     when:
       event: tag
 
-  cache-restore:
+  - name: cache-restore
     image: drillster/drone-volume-cache
     depends_on: [ clone ]
     restore: true
@@ -23,14 +23,14 @@ steps:
     volumes:
       - /tmp/cache/Model01-Sketch:/cache
 
-  bootstrap:
+  - name: bootstrap
     image: algernon/drone-language:arduino
     pull: always
     depends_on: [ cache-restore ]
     commands:
       - make setup
 
-  cache-rebuild:
+  - name: cache-rebuild
     image: drillster/drone-volume-cache
     rebuild: true
     depends_on: [ bootstrap ]
@@ -39,7 +39,7 @@ steps:
     volumes:
       - /tmp/cache/Model01-Sketch:/cache
 
-  build:
+  - name: build
     image: algernon/drone-language:arduino
     pull: always
     depends_on: [ bootstrap ]
