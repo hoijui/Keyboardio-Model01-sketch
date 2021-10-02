@@ -1,29 +1,22 @@
 kind: pipeline
-type: docker
 name: default
 
 steps:
   - name: dco
     image: algernon/drone-plugin-dco
-    depends_on: [ clone ]
 
   - name: signature-check
     image: algernon/drone-plugin-signature-check
     keys: [ 10E65DC045EABEFCC5193A26AC1E90BAC433F68F ]
-    depends_on: [ clone ]
     when:
       event: tag
 
   - name: bootstrap
     image: algernon/drone-language:arduino
-    pull: always
-    depends_on: [ clone ]
     commands:
       - make setup
 
   - name: build
     image: algernon/drone-language:arduino
-    pull: always
-    depends_on: [ bootstrap ]
     commands:
       - make build
