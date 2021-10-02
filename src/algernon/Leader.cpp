@@ -27,8 +27,6 @@
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-OneShot.h>
 
-#include "Macros.h"
-
 namespace algernon {
 namespace Leader {
 
@@ -36,9 +34,6 @@ namespace Leader {
 enum {
   LEAD_UNICODE_UCIS,
 
-  LEAD_CSILLA,
-  LEAD_KIDS,
-  LEAD_GERGO,
   LEAD_SHRUGGY,
 
   LEAD_LEDEFFECT,
@@ -70,12 +65,6 @@ static void startUCIS(uint8_t seqIndex) {
   handleKeyswitchEvent(SYSTER, UnknownKeyswitchLocation, IS_PRESSED | INJECTED);
 }
 
-static void Kids(uint8_t seqIndex) {
-  ::Macros.play(MACRO(Tc(Spacebar), Tr(LSHIFT(Key_7)), Tc(Spacebar)));
-  ::Unicode.type(0x1f476);
-  ::Unicode.type(0x1f476);
-}
-
 static void NextLEDEffect(uint8_t seqIndex) {
   LEDControl.next_mode();
 }
@@ -102,9 +91,6 @@ static void Reboot(uint8_t seqIndex) {
 static const kaleidoscope::plugin::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
     ([LEAD_UNICODE_UCIS]   = {LEADER_SEQ(LEAD(MAIN), Key_U), startUCIS},
 
-     [LEAD_CSILLA]          = {LEADER_SEQ(LEAD(MAIN), Key_C), (kaleidoscope::plugin::Leader::action_t)algernon::Macros::Csilla},
-     [LEAD_KIDS]            = {LEADER_SEQ(LEAD(MAIN), Key_K), Kids},
-     [LEAD_GERGO]           = {LEADER_SEQ(LEAD(MAIN), Key_G), (kaleidoscope::plugin::Leader::action_t)algernon::Macros::Gergo},
      [LEAD_SHRUGGY]         = {LEADER_SEQ(LEAD(MAIN), Key_S), Shruggy},
 
      [LEAD_LEDEFFECT]       = {LEADER_SEQ(LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
