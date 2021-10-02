@@ -5,12 +5,14 @@ name: default
 steps:
   - name: dco
     image: algernon/drone-plugin-dco
-    depends_on: [ clone ]
+    depends_on:
+      - clone
 
   - name: signature-check
     image: algernon/drone-plugin-signature-check
     keys: [ 10E65DC045EABEFCC5193A26AC1E90BAC433F68F ]
-    depends_on: [ clone ]
+    depends_on:
+      - clone
     when:
       event: tag
 
@@ -23,12 +25,14 @@ steps:
       restore: true
       mount:
         - ./lib
-    depends_on: [ clone ]
+    depends_on:
+      - clone
 
   - name: bootstrap
     image: algernon/drone-language:arduino
     pull: always
-    depends_on: [ cache-restore ]
+    depends_on:
+      - cache-restore
     commands:
       - make setup
 
@@ -41,12 +45,14 @@ steps:
       rebuild: true
       mount:
         - ./lib
-    depends_on: [ bootstrap ]
+    depends_on:
+      - bootstrap
 
   - name: build
     image: algernon/drone-language:arduino
     pull: always
-    depends_on: [ bootstrap ]
+    depends_on:
+      - bootstrap
     commands:
       - make build
 
