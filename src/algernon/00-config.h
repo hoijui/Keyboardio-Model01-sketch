@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016, 2017, 2018  Gergely Nagy
+ * Copyright (C) 2016-2021  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 #define WITH_PROGMEM_KEYMAP          0
 
 #if !WITH_PROGMEM_KEYMAP
-# define WITH_CYCLE_REPORT           1
+# define WITH_CYCLE_REPORT           0
 # define WITH_FOCUS_VERSION          1
 # define WITH_IDLE_LEDS              1
 #endif
