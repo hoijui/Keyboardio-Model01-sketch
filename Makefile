@@ -1,19 +1,20 @@
 ARDUINO_CLI ?= arduino-cli
 SOURCES=$(wildcard src/algernon/*.cpp src/algernon/*.h src/algernon/*.ino)
+OUTPUT_DIR ?= output
 
 ifdef DRONE_COMMIT
 VERBOSE=-v
 endif
 
-build: output/algernon.ino.hex
+build: ${OUTPUT_DIR}/algernon.ino.hex
 
-output/algernon.ino.hex: src/algernon/gitrevs.h ${SOURCES}
+${OUTPUT_DIR}/algernon.ino.hex: src/algernon/gitrevs.h ${SOURCES}
 	ARDUINO_DIRECTORIES_USER=${CURDIR}/lib \
 	${ARDUINO_CLI} compile \
 		--libraries lib \
 		--libraries lib/hardware/keyboardio/avr/libraries/Kaleidoscope/plugins \
 		--build-path ${CURDIR}/build \
-		--output-dir ${CURDIR}/output \
+		--output-dir ${CURDIR}/${OUTPUT_DIR} \
 		${VERBOSE} \
 		src/algernon
 
