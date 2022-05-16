@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016, 2017, 2019  Gergely Nagy
+ * Copyright (C) 2016-2022  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -86,10 +86,10 @@ void typeString(const char *str) {
     }
 
     Unicode.input();
-    handleKeyswitchEvent(key, UnknownKeyswitchLocation, IS_PRESSED | INJECTED);
+    Kaleidoscope.handleKeyEvent(KeyEvent{KeyAddr::none(), IS_PRESSED | INJECTED, key});
     Keyboard.sendReport();
     Unicode.input();
-    handleKeyswitchEvent(key, UnknownKeyswitchLocation, WAS_PRESSED | INJECTED);
+    Kaleidoscope.handleKeyEvent(KeyEvent{KeyAddr::none(), WAS_PRESSED | INJECTED, key});
     Keyboard.sendReport();
   }
   Unicode.end();

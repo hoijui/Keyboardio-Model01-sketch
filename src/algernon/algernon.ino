@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016-2021  Gergely Nagy
+ * Copyright (C) 2016-2022  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,6 +32,7 @@
 #include <Kaleidoscope-HostOS.h>
 #include <Kaleidoscope-IdleLEDs.h>
 #include <Kaleidoscope-LED-ActiveModColor.h>
+#include <Kaleidoscope-LED-Palette-Theme.h>
 #include <Kaleidoscope-LEDControl.h>
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-Macros.h>
@@ -50,14 +51,14 @@
 
 #include "keymap.h"
 
-const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
+const macro_t *macroAction(uint8_t macroIndex, KeyEvent &event) {
   if (macroIndex == F11) {
-    if (!keyToggledOff(keyState))
+    if (!keyToggledOff(event.state))
       return MACRO_NONE;
     return MACRO(T(F11));
   }
 
-  if (!keyToggledOn(keyState))
+  if (!keyToggledOn(event.state))
     return MACRO_NONE;
 
   switch (macroIndex) {
@@ -118,7 +119,8 @@ void setup() {
 
   algernon::Leader::configure();
 
-  MouseWrapper.speedLimit = 64;
+  MouseKeys.setSpeedLimit(64);
+
   MouseKeys.speed = 15;
   MouseKeys.accelDelay = 35;
 

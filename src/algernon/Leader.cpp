@@ -61,7 +61,7 @@ static void Shruggy(uint8_t seqIndex) {
 }
 
 static void startUCIS(uint8_t seqIndex) {
-  handleKeyswitchEvent(SYSTER, UnknownKeyswitchLocation, IS_PRESSED | INJECTED);
+  Kaleidoscope.handleKeyEvent(KeyEvent{KeyAddr::none(), IS_PRESSED | INJECTED, SYSTER});
 }
 
 static void NextLEDEffect(uint8_t seqIndex) {

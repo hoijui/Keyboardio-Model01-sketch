@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016, 2017, 2018, 2019  Gergely Nagy
+ * Copyright (C) 2016-2022  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,9 +28,9 @@ void systerAction(kaleidoscope::plugin::Syster::action_t action, const char *sym
     Unicode.type(0x2328);
     break;
   case kaleidoscope::plugin::Syster::EndAction:
-    handleKeyswitchEvent(Key_Backspace, UnknownKeyswitchLocation, IS_PRESSED | INJECTED);
+    Kaleidoscope.handleKeyEvent(KeyEvent{KeyAddr::none(), IS_PRESSED | INJECTED, Key_Backspace});
     Kaleidoscope.hid().keyboard().sendReport();
-    handleKeyswitchEvent(Key_Backspace, UnknownKeyswitchLocation, WAS_PRESSED | INJECTED);
+    Kaleidoscope.handleKeyEvent(KeyEvent{KeyAddr::none(), WAS_PRESSED | INJECTED, Key_Backspace});
     Kaleidoscope.hid().keyboard().sendReport();
     break;
   case kaleidoscope::plugin::Syster::SymbolAction:
