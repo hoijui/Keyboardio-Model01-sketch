@@ -1,6 +1,7 @@
 ARDUINO_CLI ?= arduino-cli
 SOURCES=$(wildcard src/algernon/*.cpp src/algernon/*.h src/algernon/*.ino)
 OUTPUT_DIR ?= output
+DEVICE_TTY ?= /dev/ttyACM1
 
 ifdef DRONE_COMMIT
 VERBOSE=-v
@@ -31,4 +32,11 @@ src/algernon/gitrevs.h: src/algernon/gitrevs.h.new
 setup update: tools/bootstrap.sh
 	. tools/bootstrap.sh && $@
 
-.PHONY: setup build update link
+upload: build
+	${ARDUINO_CLI} upload \
+		-p ${DEVICE_TTY} \
+		--input-dir ${CURDIR}/${OUTPUT_DIR} \
+		${VERBOSE} \
+		src/algernon
+
+.PHONY: setup build update upload
