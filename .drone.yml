@@ -26,7 +26,7 @@ steps:
     depends_on: [ clone ]
 
   - name: bootstrap
-    image: algernon/drone-language:arduino
+    image: registry.madhouse-project.org/algernon/drone-language:arduino
     pull: always
     depends_on: [ cache-restore ]
     commands:
@@ -44,7 +44,7 @@ steps:
     depends_on: [ bootstrap ]
 
   - name: build
-    image: algernon/drone-language:arduino
+    image: registry.madhouse-project.org/algernon/drone-language:arduino
     pull: always
     depends_on: [ bootstrap ]
     commands:
@@ -54,3 +54,6 @@ volumes:
   - name: cache
     host:
       path: /tmp/cache/model01-sketch
+
+image_pull_secrets:
+  - registry_madhouse_project_org
