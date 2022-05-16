@@ -30,6 +30,7 @@ steps:
     pull: always
     depends_on: [ cache-restore ]
     commands:
+      - (cd lib/hardware/keyboardio/avr/libraries/Kaleidoscope; git restore src)
       - make setup
       - sed -i 's,typedef BootKeyboardWrapper BootKeyboard;,,' lib/hardware/keyboardio/avr/libraries/Kaleidoscope/src/kaleidoscope/driver/hid/keyboardio/Keyboard.h
 
@@ -49,7 +50,22 @@ steps:
     pull: always
     depends_on: [ bootstrap ]
     commands:
-      - make build
+      - make build OUTPUT_DIR=output/${DRONE_BUILD_NUMBER}
+
+  - name: upload
+    image: registry.madhouse-project.org/algernon/drone-language:arduino
+    depends_on: [ build ]
+    environment:
+      CEC_TOKEN:
+        from_secret: CEC_TOKEN
+      CEC_URL:
+        from_secret: CEC_URL
+      CEC_PATH:
+        from_secret: CEC_PATH
+    commands:
+      - curl -sLo cec https://download.pydio.com/latest/cells-client/release/%7Blatest%7D/linux-amd64/cec
+      - chmod +x cec
+      - tools/upload ${DRONE_BUILD_NUMBER}
 
 volumes:
   - name: cache
