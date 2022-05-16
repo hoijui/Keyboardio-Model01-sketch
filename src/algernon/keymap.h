@@ -28,9 +28,7 @@ namespace LP = kaleidoscope::language;
 
 enum {
   // Starting at 8, for compatibility's sake
-  F11 = 8,
-  BDN,
-  BUP,
+  F11 = 8
 };
 
 #define Key_AT    LSHIFT(Key_2)
@@ -121,8 +119,8 @@ KEYMAPS(
 
   [_AUX] = KEYMAP_STACKED
   (
-    XXX ,XXX       ,XXX        ,XXX       ,XXX        ,XXX       ,M(BUP)
-   ,XXX ,XXX       ,R(HUN_ODA) ,XXX       ,R(HUN_UDA) ,XXX       ,M(BDN)
+    XXX ,XXX       ,XXX        ,XXX       ,XXX        ,XXX       ,XXX
+   ,XXX ,XXX       ,R(HUN_ODA) ,XXX       ,R(HUN_UDA) ,XXX       ,XXX
    ,XXX ,R(HUN_AA) ,R(HUN_OA)  ,R(HUN_EA) ,R(HUN_UA)  ,R(HUN_IA)
    ,XXX ,XXX       ,R(HUN_OU)  ,XXX       ,R(HUN_UU)  ,XXX       ,XXX
 

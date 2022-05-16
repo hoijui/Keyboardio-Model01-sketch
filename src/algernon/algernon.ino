@@ -58,17 +58,6 @@ const macro_t *macroAction(uint8_t macroIndex, KeyEvent &event) {
     return MACRO(T(F11));
   }
 
-  if (!keyToggledOn(event.state))
-    return MACRO_NONE;
-
-  switch (macroIndex) {
-  case BDN:
-    Serial.println(F("b:d"));
-    break;
-  case BUP:
-    Serial.println(F("b:u"));
-    break;
-  }
   return MACRO_NONE;
 }
 
