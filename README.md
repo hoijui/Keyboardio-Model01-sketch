@@ -144,8 +144,8 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
  [kaleidoscope:hostos]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-HostOS.html
  [kaleidoscope:unicode]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Unicode.html
  [kaleidoscope:eeprom-settings]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-EEPROM-Settings.html
- [kaleidoscope:eeprom-keymap]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Keymap.html
- [kaleidoscope:hardware-model01]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Hardware-Model01.html
+ [kaleidoscope:eeprom-keymap]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-EEPROM-Keymap.html
+ [kaleidoscope:hardware-model01]: https://github.com/keyboardio/Kaleidoscope/tree/master/plugins/Kaleidoscope-Hardware-Keyboardio-Model01
  [kaleidoscope:cycletimereport]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-CycleTimeReport.html
  [kaleidoscope:focus-version]: https://git.madhouse-project.org/algernon/Kaleidoscope-Focus-Version
 
