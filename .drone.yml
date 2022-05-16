@@ -31,6 +31,7 @@ steps:
     depends_on: [ cache-restore ]
     commands:
       - make setup
+      - sed -i 's,typedef BootKeyboardWrapper BootKeyboard;,,' lib/hardware/keyboardio/avr/libraries/Kaleidoscope/src/kaleidoscope/driver/hid/keyboardio/Keyboard.h
 
   - name: cache-rebuild
     image: drillster/drone-volume-cache
