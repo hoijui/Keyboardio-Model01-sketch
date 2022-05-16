@@ -66,15 +66,15 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 * The keyboard can also communicate with the host bidirectionally, thanks to the [FocusSerial][kaleidoscope:focusserial] plugin. See [Chrysalis][chrysalis] for a simple client.
 
   [dvorak:prg]: http://www.kaufmann.no/roland/dvorak/
-  [kaleidoscope:oneshot]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/OneShot.md
-  [kaleidoscope:colormap]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/Colormap.md
-  [kaleidoscope:led-activemodcolor]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/LED-ActiveModColor.md
-  [kaleidoscope:tap-dance]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/TapDance.md
-  [kaleidoscope:leader]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/Leader.md
-  [kaleidoscope:magic-combos]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/MagicCombo.md
-  [kaleidoscope:mouse-keys]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/MouseKeys.md
-  [kaleidoscope:macros]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/Macros.md
-  [kaleidoscope:focusserial]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/FocusSerial.md
+  [kaleidoscope:oneshot]:  https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-OneShot.html
+  [kaleidoscope:colormap]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Colormap.html
+  [kaleidoscope:led-activemodcolor]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-LED-ActiveModColor.html
+  [kaleidoscope:tap-dance]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-TapDance.html
+  [kaleidoscope:leader]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Leader.html
+  [kaleidoscope:magic-combos]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-MagicCombo.html
+  [kaleidoscope:mouse-keys]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-MouseKeys.html
+  [kaleidoscope:macros]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Macros.html
+  [kaleidoscope:focusserial]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-FocusSerial.html
   [chrysalis]: https://github.com/keyboardio/Chrysalis
 
 <a id="adore-layer"></a>
@@ -93,7 +93,7 @@ A heavy work in progress. The main difference is in the layout of alphanumerics,
 
 Once in the Symbolic Unicode Input mode (implemented by using the [Syster][kaleidoscope:syster] plugin), one is able to type in symbol names, press `Space`, and get the Unicode symbol itself back. When in the mode, `⌨` is printed first. Once the sequence is finished, all of it is erased by sending enough `Backspace` taps, and the firmware starts the OS-specific unicode input sequence. Then, it looks up the symbol name, and enters the associated code.
 
- [kaleidoscope:syster]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/Syster.md
+ [kaleidoscope:syster]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Syster.html
 
 For the list of supported symbols, please [see the source][src:SymUnI].
 
@@ -136,17 +136,17 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [TapDance][kaleidoscope:tap-dance]
 * [Unicode][kaleidoscope:unicode]
 
- [kaleidoscope:idleleds]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/IdleLEDs.md
- [kaleidoscope:led-palette-theme]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/LED-Palette-Theme.md
- [kaleidoscope:led-control]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/LEDControl.md
+ [kaleidoscope:idleleds]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-IdleLEDs.html
+ [kaleidoscope:led-palette-theme]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-LED-Palette-Theme.html
+ [kaleidoscope:led-control]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-LEDControl.html
  [kaleidoscope:langpack-hun]: https://github.com/algernon/Kaleidoscope-LangPack-Hungarian
- [kaleidoscope:escape-oneshot]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/Escape-OneShot.md
- [kaleidoscope:hostos]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/HostOS.md
- [kaleidoscope:unicode]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/Unicode.md
- [kaleidoscope:eeprom-settings]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/EEPROM-Settings.md
- [kaleidoscope:eeprom-keymap]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/Keymap.md
- [kaleidoscope:hardware-model01]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/Hardware-Model01.md
- [kaleidoscope:cycletimereport]: https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/CycleTimeReport.md
+ [kaleidoscope:escape-oneshot]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Escape-OneShot.html
+ [kaleidoscope:hostos]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-HostOS.html
+ [kaleidoscope:unicode]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Unicode.html
+ [kaleidoscope:eeprom-settings]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-EEPROM-Settings.html
+ [kaleidoscope:eeprom-keymap]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Keymap.html
+ [kaleidoscope:hardware-model01]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Hardware-Model01.html
+ [kaleidoscope:cycletimereport]: https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-CycleTimeReport.html
  [kaleidoscope:focus-version]: https://git.madhouse-project.org/algernon/Kaleidoscope-Focus-Version
 
 <a id="license"></a>
