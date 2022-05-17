@@ -21,7 +21,7 @@
 #define WITH_PROGMEM_KEYMAP          0
 
 #if !WITH_PROGMEM_KEYMAP
-# define WITH_CYCLE_REPORT           0
+# define WITH_CYCLE_REPORT           1
 # define WITH_FOCUS_VERSION          1
 # define WITH_IDLE_LEDS              1
 #endif
