@@ -5,11 +5,12 @@ update () {
                  lib/Kaleidoscope-LEDEffect-DigitalRain \
                  lib/hardware/keyboardio; do
         echo "Updating $f"
-        (cd $f;
-         git checkout -q master;
+        (cd "$f" || exit;
+         m_branch="$(git branch -l master main | sed 's/^* //')";
+         git checkout -q "$m_branch";
          git pull -q -ff;
          git submodule --quiet update --init --recursive;
-         git submodule --quiet foreach --recursive 'echo "Updating $path..."; git checkout -q master; git pull -q -ff';)
+         git submodule --quiet foreach --recursive 'echo "Updating $path..."; git checkout -q '"$m_branch"'; git pull -q -ff';)
     done
 }
 
